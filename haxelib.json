@@ -12,6 +12,6 @@
       "init release",
   "contributors": ["nobkz"],
   "dependencies": {
-    "nodehx" : ""
+    "hx-node" : ""
   }
 }
