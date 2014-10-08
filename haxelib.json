@@ -11,5 +11,7 @@
   "releasenote":
       "init release",
   "contributors": ["nobkz"],
-  "dependencies": {}
+  "dependencies": {
+    "nodehx" : ""
+  }
 }
