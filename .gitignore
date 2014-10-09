@@ -1,2 +1,4 @@
 .DS_Store
-upload.zip
+*.zip
+test/node_modules
+test/main.js

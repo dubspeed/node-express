@@ -9,6 +9,10 @@ typedef Response = {
 
 
 extern class Express{
-	public function get(path:String, callback : Request -> Response -> Void) : Void;
+	public function set(name:String, value:String) : Void;
+
+	@:overload(function(name:String):String{})
+	public function get(name:String, callback : Request -> Response -> Void) : Void;
+
 	public function listen(port:Int) : Void;
 }

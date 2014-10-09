@@ -1,0 +1,7 @@
+-main Main
+-lib buddy
+-lib node-express
+-D nodejs
+-js main.js
+-cmd echo "test"
+-cmd node main.js
