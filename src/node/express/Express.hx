@@ -9,7 +9,9 @@ extern class Express{
 	public function get(name:String, callback : Request -> Response -> Void) : Void;
 	//get -> String だがbool値とundefineも返す
 	public function post(path:String, callback : Request -> Response -> Void) : Void;
-	
+
+	public function all(path:String, callback : Request -> Response -> (Void->Void) -> Void) : Void;
+
 	public function listen(port:Int) : Void;
 
 	public function enable(name:String):Void;
