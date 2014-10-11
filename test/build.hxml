@@ -1,4 +1,4 @@
--main Main
+ApplicationSpec
 -lib buddy
 -lib node-express
 -D nodejs
