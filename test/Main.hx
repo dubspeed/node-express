@@ -30,21 +30,22 @@ class Main extends BuddySuite implements Buddy{
 
 			it("Application enable",{
 				app.enable("test");
-				app.get("test").should.be(true);
-			})
+				app.enabled("test").should.be(true);
+				//get -> String だがbool値とundefineも返す
+			});
 
 			it("Application enabled",{
 				app.enabled("test").should.be(false);
 				app.enable("test");
 				app.enabled("test").should.be(true);
-			})
+			});
 
 			it("Application disable",{
 				app.enable("test");
-				app.get("test").should.be(true);
+				app.enabled("test").should.be(true);
 				app.disable("test");
-				app.get("test").should.be(false);
-			})
+				app.enabled("test").should.be(false);
+			});
 			
 			it("Application disabled", {
 				app.disabled("test").should.be(true);
@@ -52,6 +53,66 @@ class Main extends BuddySuite implements Buddy{
 				app.disabled("test").should.be(false);
 				app.disable("test");
 				app.disabled("test").should.be(true);
+			});
+
+			it("Application use",{
+				app.use("/hoge",function(res,req){});
+				true.should.be(true);
+			});
+
+			it("Application engine",{
+				app.engine("jade",equire("jade".__express));
+				true.should.be(true);
+			});
+
+			it("Application param",{
+				app.param('id',function(req,res,next,id){
+					console.log("hoge");
+					next();
+				});
+				true.should.be(true);
+			});
+
+			it("Application all",{
+				app.all('*',loadUser);
+				true.should.be(true);
+			});
+
+			it("Application route",{
+				app.route('event');
+				true.should.be(true);
+			});
+
+			it("Application locals",{
+				app.locals;
+				true.should.be(true);
+			});
+			it("Application render",{
+				app.render("email",function(err,html){
+				});
+				true.should.be(true);
+			});
+
+			it("Application listen",{
+				app.listen(3000);
+				true.should.be(true);
+			});
+
+			it("Application path",{
+				app.path("/use");
+				true.should.be(true);
+			});
+
+			it("Application mountpath",{
+				app.mountpath;
+				true.should.be(true);
+			});
+
+			it("Application onmount",{
+				app.on("mount",function(parent){
+					Console.log("admin mount");
+				});
+				true.should.be(true);
 			})
 		});
 	}
