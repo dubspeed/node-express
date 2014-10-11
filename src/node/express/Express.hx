@@ -10,5 +10,6 @@ typedef Response = {
 
 extern class Express{
 	public function get(path:String, callback : Request -> Response -> Void) : Void;
+	public function post(path:String, callback : Request -> Response -> Void) : Void;
 	public function listen(port:Int) : Void;
 }
