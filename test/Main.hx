@@ -113,7 +113,7 @@ class Main extends BuddySuite implements Buddy{
 					Console.log("admin mount");
 				});
 				true.should.be(true);
-			})
+			});
 		});
 	}
 }
