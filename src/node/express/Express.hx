@@ -4,6 +4,7 @@ typedef Request = Dynamic;
 typedef Response = { 
 	send : String -> Void,
 	json : Dynamic -> Void,
+	render : String -> Void,
 	status : Int->Response
 }
 
