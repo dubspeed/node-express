@@ -7,32 +7,36 @@ using buddy.Should;
 import node.Node;
 import node.express.*;
 
-class RouteSpec extends BuddySuite implements Buddy{
+class RouterSpec extends BuddySuite implements Buddy{
 	public function new(){
-		describe("RouteSpec",{
+		describe("RouterSpec",{
 			var router : Router;
 
 			before({
 				var express = Node.require("express");
-				route = express.router();
+				router = express.router();
 			});
 
-			it("RouteSpec use",{
+			it("RouterSpec use",{
 				router.use(function(req,res,next){
 				});
 				true.should.be(true);
 			});
-			it("RouteSpec param",{
+			
+			it("RouterSpec param",{
 				router.param('id', function (req, res, next, id) {
 				});
 				true.should.be(true);
   			});
-  			it("RouteSpec route",{
+  			
+  			it("RouterSpec route",{
   				router.route('/users/:user_id');
   				true.should.be(true);
   			});
-  			it("RouteSpec all",{
-  				router.all("*");
+
+  			it("RouterSpec all",{
+  				router.all('*',function(req,res){
+  				});
   				true.should.be(true);
   			});
 		});
