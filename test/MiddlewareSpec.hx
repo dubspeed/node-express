@@ -7,17 +7,12 @@ using buddy.Should;
 import node.Node;
 import node.express.*;
 
-class RouteSpec extends BuddySuite implements Buddy{
+class MiddlewareSpec extends BuddySuite implements Buddy{
 	public function new(){
 		describe("RouteSpec",{
-			var route : Route;
+			var middle : Middleware;
 
-			before({
-				var express = Node.require("express");
-				route = express.router();
-			});
-
-			it("RouteSpec",{
+			it("MiddlewareSpec",{
 				true.should.be(true);
 			});
 		});

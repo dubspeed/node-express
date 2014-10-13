@@ -5,7 +5,7 @@ import buddy.BuddySuite;
 using buddy.Should;
 
 import node.Node;
-import node.express.Express;
+import node.express.*;
 
 class ApplicationSpec extends BuddySuite implements Buddy{
 	public function new(){

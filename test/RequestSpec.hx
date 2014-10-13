@@ -7,15 +7,10 @@ using buddy.Should;
 import node.Node;
 import node.express.*;
 
-class RouteSpec extends BuddySuite implements Buddy{
+class RequestSpec extends BuddySuite implements Buddy{
 	public function new(){
-		describe("RouteSpec",{
-			var route : Route;
-
-			before({
-				var express = Node.require("express");
-				route = express.router();
-			});
+		describe("RequestSpec",{
+			var req : Request;
 
 			it("RouteSpec",{
 				true.should.be(true);
