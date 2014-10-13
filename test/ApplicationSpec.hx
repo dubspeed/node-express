@@ -9,8 +9,8 @@ import node.express.Express;
 
 class ApplicationSpec extends BuddySuite implements Buddy{
 	public function new(){
-		describe("Express spec",{
-			var app : Express;
+		describe("Application spec",{
+			var app : Application;
 
 			before({
 				var express = Node.require("express");
@@ -86,6 +86,7 @@ class ApplicationSpec extends BuddySuite implements Buddy{
 				app.locals;
 				true.should.be(true);
 			});
+
 			it("Application render",{
 				app.render("email",function(err,html){
 				});

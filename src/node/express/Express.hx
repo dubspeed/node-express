@@ -1,7 +1,7 @@
 package node.express;
 
 
-extern class Express{
+extern class Application{
 	public function set(name:String, value:String) : Void;
 
 	@:overload(function(name:String):String{})
