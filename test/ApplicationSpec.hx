@@ -7,7 +7,7 @@ using buddy.Should;
 import node.Node;
 import node.express.Express;
 
-class Main extends BuddySuite implements Buddy{
+class ApplicationSpec extends BuddySuite implements Buddy{
 	public function new(){
 		describe("Express spec",{
 			var app : Express;
