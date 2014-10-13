@@ -17,12 +17,13 @@ extern class Express{
 	public function use(callback:Request -> Response -> Void):Void;
 
 	public function engine(ext:String , callback : Request -> Response -> Void):Void;
-	public function param(id:String, callback : Request -> Response -> Void):Void;
+	public function param(id:String, callback : Request -> Response -> String -> String -> Void):Void;
 	public function all(path:String,callback : Request -> Response -> Void):Void;
 	public function route(path:String):Void;
 	public function render(view:String,callback : String -> String -> Void):Void;
 	public function listen(pord:Int):Void;
-	public function path():String;
-	var mountpath;
-	var locals;
+	public function path(url:String):String;
+	public function on(mount:String,callback:Request -> Void):Void;
+	public var mountpath:String;
+	public var locals :String;
 }

@@ -61,20 +61,19 @@ class ApplicationSpec extends BuddySuite implements Buddy{
 			});
 
 			it("Application engine",{
-				app.engine("jade",equire("jade".__express));
+				app.engine("jade",Node.require("jade").__express);
 				true.should.be(true);
 			});
 
 			it("Application param",{
 				app.param('id',function(req,res,next,id){
-					console.log("hoge");
-					next();
 				});
 				true.should.be(true);
 			});
 
 			it("Application all",{
-				app.all('*',loadUser);
+				app.all('*',function(req,res){
+				});
 				true.should.be(true);
 			});
 
@@ -110,7 +109,6 @@ class ApplicationSpec extends BuddySuite implements Buddy{
 
 			it("Application onmount",{
 				app.on("mount",function(parent){
-					Console.log("admin mount");
 				});
 				true.should.be(true);
 			});
