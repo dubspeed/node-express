@@ -1,6 +1,7 @@
-ApplicationSpec
+-main ApplicationSpec
 -lib buddy
 -lib node-express
+-cp .
 -D nodejs
 -js main.js
 -cmd echo "test"
