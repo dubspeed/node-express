@@ -1,4 +1,4 @@
 package node.express;
 
-extern class Route{
+extern class Router{
 }
