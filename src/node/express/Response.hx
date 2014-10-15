@@ -6,5 +6,6 @@ typedef Response = {
 	json : Dynamic -> Void,
 	render : String -> Void,
 	status : Int->Response,
-	redirect : String->Void
+	redirect : String->Void,
+	setHeader : String->String->Response
 }
