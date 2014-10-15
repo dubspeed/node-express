@@ -5,12 +5,12 @@ import buddy.BuddySuite;
 using buddy.Should;
 
 import node.Node;
-import node.express.Express;
+import node.express.*;
 
-class Main extends BuddySuite implements Buddy{
+class ApplicationSpec extends BuddySuite implements Buddy{
 	public function new(){
-		describe("Express spec",{
-			var app : Express;
+		describe("Application spec",{
+			var app : Application;
 
 			before({
 				var express = Node.require("express");
@@ -61,20 +61,19 @@ class Main extends BuddySuite implements Buddy{
 			});
 
 			it("Application engine",{
-				app.engine("jade",equire("jade".__express));
+				app.engine("jade",Node.require("jade").__express);
 				true.should.be(true);
 			});
 
 			it("Application param",{
 				app.param('id',function(req,res,next,id){
-					console.log("hoge");
-					next();
 				});
 				true.should.be(true);
 			});
 
 			it("Application all",{
-				app.all('*',loadUser);
+				app.all('*',function(req,res){
+				});
 				true.should.be(true);
 			});
 
@@ -87,6 +86,7 @@ class Main extends BuddySuite implements Buddy{
 				app.locals;
 				true.should.be(true);
 			});
+
 			it("Application render",{
 				app.render("email",function(err,html){
 				});
@@ -110,10 +110,9 @@ class Main extends BuddySuite implements Buddy{
 
 			it("Application onmount",{
 				app.on("mount",function(parent){
-					Console.log("admin mount");
 				});
 				true.should.be(true);
-			})
+			});
 		});
 	}
 }
