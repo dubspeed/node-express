@@ -12,6 +12,7 @@ extern class Application{
 	public function disable(name:String):Void;
 	public function disabled(name:String):Bool;
 
+	@:overload(function(?path:Dynamic,?func:Dynamic,callback:Dynamic):Dynamic{})
 	@:overload(function(path:String, callback : Request -> Response -> Void) : Void{})
 	@:overload(function(path:String, callback : Request -> Response -> Void, callback : Request -> Response -> Void):Void{})
 	public function use(callback:Request -> Response -> Void):Void;
