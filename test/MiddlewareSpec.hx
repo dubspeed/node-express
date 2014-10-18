@@ -13,11 +13,13 @@ class MiddlewareSpec extends BuddySuite implements Buddy{
 			var app : Application;
 
 			before({
-				app = Node.require("express");
+				var express = Node.require("express");
+				app = express();
 			});
 
 			it("Middleware app use",{
-				app.use(Node.require("express").static('public'));
+				var cookieparser = Node.require("cookie-parser");
+				app.use(cookieparser);
 				true.should.be(true);
 			});
 			

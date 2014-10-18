@@ -12,6 +12,7 @@ extern class Application{
 	public function disable(name:String):Void;
 	public function disabled(name:String):Bool;
 
+	@:overload(function(option:Dynamic):Dynamic{})
 	@:overload(function(?path:Dynamic,?func:Dynamic,callback:Dynamic):Dynamic{})
 	@:overload(function(path:String, callback : Request -> Response -> Void) : Void{})
 	@:overload(function(path:String, callback : Request -> Response -> Void, callback : Request -> Response -> Void):Void{})
@@ -27,4 +28,5 @@ extern class Application{
 	public function on(mount:String,callback:Request -> Void):Void;
 	public var mountpath:String;
 	public var locals :String;
+
 }
