@@ -53,12 +53,12 @@ class ResponseSpec extends BuddySuite implements Buddy{
 			});
 
 			it("Response json",{
-				res.json(Null);
+				res.json(null);
 				true.should.be(true);
 			});
 
 			it("Response jsonp",{
-				res.jsonp(Null);
+				res.jsonp(null);
 				true.should.be(true);
 			});
 
