@@ -88,7 +88,7 @@ class RequestSpec extends BuddySuite implements Buddy{
 			it("Request path",{
 				req.path;
 				true.should.be(true);
-			})
+			});
 
 			it("Request hostname",{
 				req.hostname;
