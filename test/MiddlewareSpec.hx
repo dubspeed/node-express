@@ -9,12 +9,18 @@ import node.express.*;
 
 class MiddlewareSpec extends BuddySuite implements Buddy{
 	public function new(){
-		describe("RouteSpec",{
-			var middle : Middleware;
+		describe("Middleware Spec",{
+			var app : Application;
 
-			it("MiddlewareSpec",{
+			before({
+				app = Node.require("express");
+			});
+
+			it("Middleware app use",{
+				app.use(Node.require("express").static('public'));
 				true.should.be(true);
 			});
+			
 		});
 	}
 }
