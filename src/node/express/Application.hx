@@ -21,7 +21,7 @@ extern class Application{
 
 	public function engine(ext:String , callback : Request -> Response -> Void):Void;
 	public function param(id:String, callback : Request -> Response -> String -> String -> Void):Void;
-	public function all(path:String,callback : Request -> Response -> Void):Void;
+	public function all(path:String,callback : Request -> Response -> (Void->Void) -> Void):Void;
 	public function route(path:String):Void;
 	public function render(view:String,callback : String -> String -> Void):Void;
 	public function listen(pord:Int):Void;
