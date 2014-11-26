@@ -7,9 +7,9 @@
   "tags": ["web", "js"],
   "description":
       "This is MVW Frontend Framework as Haxe!",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "releasenote":
-      "init release",
+      "added post method and updated application all paremter",
   "contributors": ["nobkz"],
   "dependencies": {
     "hx-node" : ""
