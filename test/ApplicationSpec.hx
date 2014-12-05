@@ -72,7 +72,7 @@ class ApplicationSpec extends BuddySuite implements Buddy{
 			});
 
 			it("Application all",{
-				app.all('*',function(req,res){
+				app.all('*',function(req,res,next){
 				});
 				true.should.be(true);
 			});

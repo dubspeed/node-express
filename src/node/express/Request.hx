@@ -6,6 +6,7 @@ extern class Request {
 	public function param(path:String):Dynamic;
 	public var route:String;
 	public var cookies:Dynamic;
+	public var headers:Dynamic;
 	public var signedCookies:Dynamic;
 	public function get(type:String):Dynamic;
 	public function accepts(type:String):Void;
