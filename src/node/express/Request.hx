@@ -25,5 +25,5 @@ extern class Request {
 	public var secure:Bool;
 	public var subdomains:String;
 	public var baseUrl:String;
-
+	public var session:Dynamic;
 }
