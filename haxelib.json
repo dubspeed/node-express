@@ -7,7 +7,7 @@
   "tags": ["web", "js"],
   "description":
       "express bindings",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "releasenote":
       "added session parameter",
   "contributors": ["nobkz"],
