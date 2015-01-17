@@ -129,6 +129,12 @@ class RequestSpec extends BuddySuite implements Buddy{
 				req.baseUrl;
 				true.should.be(true);
 			});
+
+			it("Request session",{
+				req.session;
+				true.should.be(true);
+			});
+
 		});
 	}
 }
