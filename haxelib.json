@@ -9,7 +9,7 @@
       "express bindings",
   "version": "0.0.4",
   "releasenote":
-      "added post method and updated application all paremter",
+      "added session parameter",
   "contributors": ["nobkz"],
   "dependencies": {
     "hx-node" : ""
