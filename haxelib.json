@@ -4,7 +4,7 @@
       "https://github.com/dubspeed/node-express",
   "license": "MIT",
   "classPath": "src/",
-  "tags": ["web", "js"],
+  "tags": ["web", "js", "node", "expressjs"],
   "description":
       "expressjs v4 bindings",
   "version": "4.18.2",
@@ -12,6 +12,6 @@
       "inital fork from old repo",
   "contributors": ["dubspeed", "nobkz"],
   "dependencies": {
-    "hx-node" : ""
+    "hxnodejs" : "12.1.0"
   }
 }
