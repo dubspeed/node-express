@@ -1,0 +1,22 @@
+{
+    "build": { "dockerfile": "Dockerfile" },
+    "customizations": {
+		"vscode": {
+			"extensions": [
+				"vshaxe.haxe-extension-pack",
+				"influrium.haxe-jsx",
+				"jeremyfa.haxe-blocks",
+				"vshaxe.haxe-test-adapter",
+				"HaxeFoundation.haxe-hl",
+				"vshaxe.hxcpp-debugger",
+				"vshaxe.haxe-checkstyle"
+			]
+		}
+	},
+	"postCreateCommand": "haxelib install test-adapter --always && haxelib install all --always && cd test && haxelib install all --always",
+	"portsAttributes": {
+		"6000": {
+			"label": "haxe-langserver"
+		}
+	}
+}

@@ -1,7 +1,8 @@
--main ApplicationSpec
+-main test.ApplicationSpec
+-lib hxnodejs
 -lib buddy
--lib node-express
 -cp .
+#--no-output
 -D nodejs
 -js main.js
 -cmd echo "test"

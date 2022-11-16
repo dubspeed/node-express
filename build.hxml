@@ -1,0 +1,3 @@
+-cp src
+--library hxnodejs 
+--no-output

@@ -1,18 +1,19 @@
-package ;
+package test;
 
 import buddy.Buddy;
 import buddy.BuddySuite;
 using buddy.Should;
-
-import node.Node;
+#if js
+import js.Node;
 import node.express.*;
+#end
 
-class ApplicationSpec extends BuddySuite implements Buddy{
+class ApplicationSpec extends BuddySuite implements Buddy<[ApplicationSpec]>{
 	public function new(){
 		describe("Application spec",{
-			var app : Application;
+			var app : Dynamic;
 
-			before({
+			beforeEach({
 				var express = Node.require("express");
 				app = express();
 			});

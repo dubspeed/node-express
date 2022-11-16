@@ -1,0 +1,12 @@
+{
+    "haxe.configurations": [
+        ["-cp", "src", "-lib", "hxnodejs", "-lib", "buddy"],
+        ["build.hxml"]
+    ],
+    "haxeTestExplorer.testCommand": [
+        "${haxe}",
+        "test/build.hxml",
+        "-lib",
+        "test-adapter"
+      ]
+}
