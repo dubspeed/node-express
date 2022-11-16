@@ -13,7 +13,7 @@
 			]
 		}
 	},
-	"postCreateCommand": "haxelib install test-adapter --always && haxelib install all --always && cd test && haxelib install all --always",
+	"postCreateCommand": "npm install && haxelib install test-adapter --always && haxelib install all --always && cd test && haxelib install all --always",
 	"portsAttributes": {
 		"6000": {
 			"label": "haxe-langserver"

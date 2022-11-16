@@ -1,6 +1,7 @@
--main test.ApplicationSpec
+-main test.TestMain
 -lib hxnodejs
 -lib buddy
+-cp src
 -cp .
 #--no-output
 -D nodejs

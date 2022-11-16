@@ -1,144 +1,198 @@
-package ;
+package test;
 
 import buddy.Buddy;
 import buddy.BuddySuite;
 using buddy.Should;
 
-import node.Node;
+#if js
+import js.Node;
 import node.express.*;
+#end
 
-class ResponseSpec extends BuddySuite implements Buddy{
+class ResponseSpec extends BuddySuite {
 	public function new(){
 		describe("ResponseSpec",{
-			var res : Response;
+			var app:Application;
+
+			beforeEach({
+				var express = Node.require("express");
+				app = express();
+			});
 
 			it("ResponseSpec",{
+				app.get("/", (req:Request, res:Response) -> {
+					// ?
+				});
 				true.should.be(true);
 			});
 			it("Response Status",{
-				res.status(404).end();
+				app.get("/", (req:Request, res:Response) -> {
+					res.status(404).end();
+				});
 				true.should.be(true);
 			});
 			it("Response set",{
-				res.set('Content-Type', 'text/plain');
+				app.get("/", (req:Request, res:Response) -> {
+					res.set('Content-Type', 'text/plain');
+				});
 				true.should.be(true);
 			});
 			it("Response get",{
-				res.set('Content-Type','text/plain');
-				res.get('Content-Type').should.be('text/plain');
+				app.get("/", (req:Request, res:Response) -> {
+					res.set('Content-Type','text/plain');
+					res.get('Content-Type').should.be('text/plain');
+				});
 			});
 			it("Response cookie",{
-				res.cookie('name', 'tobi', { domain: '.example.com', path: '/admin', secure: true });
+				app.get("/", (req:Request, res:Response) -> {
+					res.cookie('name', 'tobi', { domain: '.example.com', path: '/admin', secure: true });
+				});
 				true.should.be(true);
 			});
 
 			it("Response clearCookie",{
-				res.cookie('name', 'tobi', { path: '/admin' });
-				res.clearCookie('name', { path: '/admin' });
+				app.get("/", (req:Request, res:Response) -> {
+					res.cookie('name', 'tobi', { path: '/admin' });
+					res.clearCookie('name', { path: '/admin' });
+				});
 			});
 
 			it("Response redirect",{
-				res.redirect('/foo/bar');
+				app.get("/", (req:Request, res:Response) -> {
+					res.redirect('/foo/bar');
+				});
 				true.should.be(true);
 			});
 
 			it("Response location",{
-				res.location('/foo/bar');
+				app.get("/", (req:Request, res:Response) -> {
+					res.location('/foo/bar');
+				});
 				true.should.be(true);
 			});
 
 			it("Response send",{
-				res.send({ some: 'json' });
+				app.get("/", (req:Request, res:Response) -> {
+					res.send({ some: 'json' });
+				});
 				true.should.be(true);
 			});
 
 			it("Response json",{
-				res.json(null);
+				app.get("/", (req:Request, res:Response) -> {
+					res.json(null);
+				});
 				true.should.be(true);
 			});
 
 			it("Response jsonp",{
-				res.jsonp(null);
+				app.get("/", (req:Request, res:Response) -> {
+					res.jsonp(null);
+				});
 				true.should.be(true);
 			});
 
 			it("Response type",{
-				res.type('html');
+				app.get("/", (req:Request, res:Response) -> {
+					res.type('html');
+				});
 				true.should.be(true);
 			});
 
 			it("Response format",{
-				res.format({
-  					'text/plain': function(){
-    				res.send('hey');
-  					},
-
-  					'text/html': function(){
-    					res.send('<p>hey</p>');
-  					},
-
-  					'application/json': function(){
-    					res.send({ message: 'hey' });
-  					},
-
-  					'default': function() {
-   						// log the request and respond with 406
-    					res.status(406).send('Not Acceptable');
-  					}
+				app.get("/", (req:Request, res:Response) -> {
+					res.format({
+						'text/plain': function(){
+					  res.send('hey');
+						},
+  
+						'text/html': function(){
+						  res.send('<p>hey</p>');
+						},
+  
+						'application/json': function(){
+						  res.send({ message: 'hey' });
+						},
+  
+						'default': function() {
+							 // log the request and respond with 406
+						  res.status(406).send('Not Acceptable');
+						}
+				  });
 				});
 			});
 
 			it("Response attachment",{
-				res.attachment();
+				app.get("/", (req:Request, res:Response) -> {
+					res.attachment();
+				});
 				true.should.be(true);
 			});
 
 			it("Response sendFile",{
-				res.sendFile("/home/hoge/hoge");
+				app.get("/", (req:Request, res:Response) -> {
+					res.sendFile("/home/hoge/hoge");
+				});
 				true.should.be(true);
 			});
 
 			it("Response sendStatus",{
-				res.sendStatus(200);
+				app.get("/", (req:Request, res:Response) -> {
+					res.sendStatus(200);
+				});
 				true.should.be(true);
 			});
 
 			it("Response download",{
-				res.download('/report-12345.pdf');
+				app.get("/", (req:Request, res:Response) -> {
+					res.download('/report-12345.pdf');
+				});
 				true.should.be(true);
 			});
 
 			it("Response links",{
-				res.links({
-  					next: 'http://api.example.com/users?page=2',
-  					last: 'http://api.example.com/users?page=5'
+				app.get("/", (req:Request, res:Response) -> {
+					res.links({
+						next: 'http://api.example.com/users?page=2',
+						last: 'http://api.example.com/users?page=5'
+				  });
 				});
 				true.should.be(true);
 			});
 
 			it("Response locals",{
-				res.locals;
+				app.get("/", (req:Request, res:Response) -> {
+					res.locals;
+				});
 				true.should.be(true);
 			});
 
 			it("Response render",{
-				res.render('index',function(err,html){});
+				app.get("/", (req:Request, res:Response) -> {
+					res.render('index',function(err,html){});
+				});
 				true.should.be(true);
 			});
 
 			it("Response vary",{
-				res.vary('User-Agent');
+				app.get("/", (req:Request, res:Response) -> {
+					res.vary('User-Agent');
+				});
 				true.should.be(true);
 			});
 
 			it("Response end",{
-				res.end();
-				res.status(404).end();
+				app.get("/", (req:Request, res:Response) -> {
+					res.end();
+					res.status(404).end();
+				});
 				true.should.be(true);
 			});
 
 			it("Response headersSent",{
-				res.headersSent;
+				app.get("/", (req:Request, res:Response) -> {
+					res.headersSent;
+				});
 				true.should.be(true);
 			});
 		});

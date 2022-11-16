@@ -1,5 +1,6 @@
 package test;
 
+import node.express.Application;
 import buddy.Buddy;
 import buddy.BuddySuite;
 using buddy.Should;
@@ -8,10 +9,10 @@ import js.Node;
 import node.express.*;
 #end
 
-class ApplicationSpec extends BuddySuite implements Buddy<[ApplicationSpec]>{
+class ApplicationSpec extends BuddySuite {
 	public function new(){
 		describe("Application spec",{
-			var app : Dynamic;
+			var app : Application;
 
 			beforeEach({
 				var express = Node.require("express");
@@ -89,6 +90,7 @@ class ApplicationSpec extends BuddySuite implements Buddy<[ApplicationSpec]>{
 			});
 
 			it("Application render",{
+				app.set("view engine","jade");
 				app.render("email",function(err,html){
 				});
 				true.should.be(true);

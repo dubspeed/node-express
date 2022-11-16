@@ -1,6 +1,7 @@
 {
     "haxe.configurations": [
         ["-cp", "src", "-lib", "hxnodejs", "-lib", "buddy"],
+        ["-cp", "tests"],
         ["build.hxml"]
     ],
     "haxeTestExplorer.testCommand": [

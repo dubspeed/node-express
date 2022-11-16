@@ -1,18 +1,21 @@
-package ;
+package test;
 
+import node.express.Application;
 import buddy.Buddy;
 import buddy.BuddySuite;
 using buddy.Should;
 
-import node.Node;
+#if js
+import js.Node;
 import node.express.*;
+#end
 
-class MiddlewareSpec extends BuddySuite implements Buddy{
+class MiddlewareSpec extends BuddySuite {
 	public function new(){
 		describe("Middleware Spec",{
 			var app : Application;
 
-			before({
+			beforeEach({
 				var express = Node.require("express");
 				app = express();
 			});
