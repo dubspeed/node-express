@@ -1,16 +1,16 @@
 {
-  "name": "node-express",
+  "name": "node-express4",
   "url" :
-      "https://github.com/technicalrockstars/node-express",
+      "https://github.com/dubspeed/node-express",
   "license": "MIT",
   "classPath": "src/",
   "tags": ["web", "js"],
   "description":
-      "express bindings",
-  "version": "0.0.5",
+      "expressjs v4 bindings",
+  "version": "4.18.2",
   "releasenote":
-      "added session parameter",
-  "contributors": ["nobkz"],
+      "inital fork from old repo",
+  "contributors": ["dubspeed", "nobkz"],
   "dependencies": {
     "hx-node" : ""
   }
