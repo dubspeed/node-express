@@ -26,4 +26,5 @@ extern class Request {
 	public var subdomains:String;
 	public var baseUrl:String;
 	public var session:Dynamic;
+	public var body:Dynamic;
 }
