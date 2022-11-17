@@ -1,5 +1,4 @@
-package node.express;
-
+package js.node.express; 
 
 extern class Application{
 	public function set(name:String, value:String) : Void;

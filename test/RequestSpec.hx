@@ -1,7 +1,6 @@
 package test;
 
-import node.express.Request;
-import buddy.Buddy;
+import js.node.express.*;
 import buddy.BuddySuite;
 
 using buddy.Should;

@@ -1,54 +1,54 @@
 package test;
 
-import node.express.Application;
+import js.node.Express;
+import haxe.xml.Parser.XmlParserException;
+import js.node.express.Application;
 import buddy.Buddy;
 import buddy.BuddySuite;
+
 using buddy.Should;
-#if js
+
 import js.Node;
-import node.express.*;
-#end
 
 class ApplicationSpec extends BuddySuite {
-	public function new(){
-		describe("Application spec",{
-			var app : Application;
+	public function new() {
+		describe("Application spec", {
+			var app:Application;
 
 			beforeEach({
-				var express = Node.require("express");
-				app = express();
+				app = Express.express();				
 			});
 
-
-			it("Application set",{
-				app.set("1","2");
+			it("Application set", {
+				app.set("1", "2");
 				app.get("1").should.be("2");
 			});
 
-			it("Application get",{
-				app.get("hello world",function(req,res){});
-				true.should.be(true);
+			it("Application get", {
+				app.get("hello world", function(req, res) {});
+				true
+				.should.be(true);
 			});
 
-			it("Application enable",{
+			it("Application enable", {
 				app.enable("test");
 				app.enabled("test").should.be(true);
-				//get -> String だがbool値とundefineも返す
+				// get -> String だがbool値とundefineも返す
 			});
 
-			it("Application enabled",{
+			it("Application enabled", {
 				app.enabled("test").should.be(false);
 				app.enable("test");
 				app.enabled("test").should.be(true);
 			});
 
-			it("Application disable",{
+			it("Application disable", {
 				app.enable("test");
 				app.enabled("test").should.be(true);
 				app.disable("test");
 				app.enabled("test").should.be(false);
 			});
-			
+
 			it("Application disabled", {
 				app.disabled("test").should.be(true);
 				app.enable("test");
@@ -57,66 +57,72 @@ class ApplicationSpec extends BuddySuite {
 				app.disabled("test").should.be(true);
 			});
 
-			it("Application use",{
-				app.use("/hoge",function(res,req){});
-				true.should.be(true);
+			it("Application use", {
+				app.use("/hoge", function(res, req) {});
+				true
+				.should.be(true);
 			});
 
-			it("Application engine",{
-				app.engine("jade",Node.require("jade").__express);
-				true.should.be(true);
+			it("Application engine", {
+				app.engine("jade", Node.require("jade").__express);
+				true
+				.should.be(true);
 			});
 
-			it("Application param",{
-				app.param('id',function(req,res,next,id){
-				});
-				true.should.be(true);
+			it("Application param", {
+				app.param('id', function(req, res, next, id) {});
+				true
+				.should.be(true);
 			});
 
-			it("Application all",{
-				app.all('*',function(req,res,next){
-				});
-				true.should.be(true);
+			it("Application all", {
+				app.all('*', function(req, res, next) {});
+				true
+				.should.be(true);
 			});
 
-			it("Application route",{
+			it("Application route", {
 				app.route('event');
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 
-			it("Application locals",{
+			it("Application locals", {
 				app.locals;
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 
-			it("Application render",{
-				app.set("view engine","jade");
-				app.render("email",function(err,html){
-				});
-				true.should.be(true);
+			it("Application render", {
+				app.set("view engine", "jade");
+				app.render("email", function(err, html) {});
+				true
+				.should.be(true);
 			});
 
-			it("Application listen",{
+			it("Application listen", {
 				app.listen(3000);
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 
-			it("Application path",{
+			it("Application path", {
 				app.path("/use");
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 
-			it("Application mountpath",{
+			it("Application mountpath", {
 				app.mountpath;
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 
-			it("Application onmount",{
-				app.on("mount",function(parent){
-				});
-				true.should.be(true);
+			it("Application onmount", {
+				app.on("mount", function(parent) {});
+				true
+				.should.be(true);
 			});
 		});
 	}
 }
-

@@ -1,4 +1,4 @@
-package node.express;
+package js.node.express;
 
 extern class Response{
 	public function status(num:Int):Response;

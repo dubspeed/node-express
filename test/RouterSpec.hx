@@ -1,13 +1,10 @@
 package test;
 
-import buddy.Buddy;
 import buddy.BuddySuite;
 using buddy.Should;
 
-#if js
 import js.Node;
-import node.express.*;
-#end
+import js.node.express.*;
 
 class RouterSpec extends BuddySuite {
 	public function new(){

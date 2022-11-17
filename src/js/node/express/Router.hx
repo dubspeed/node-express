@@ -1,4 +1,4 @@
-package node.express;
+package js.node.express;
 
 extern class Router{
 	public function use(?path:String,?callback:Request -> Response -> (Void -> Void)-> Void ) : Void;
