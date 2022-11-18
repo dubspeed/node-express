@@ -100,7 +100,11 @@ class ApplicationSpec extends BuddySuite {
 			});
 
 			it("Application listen", {
-				app.listen(3000);
+				app.listen(9000);
+				app.listen(9001, () -> {});	
+				app.listen(9002, "localhost", () -> {});
+				app.listen(9003, "localhost", 42, () -> {});
+				app.listen({port: 9004, host: "localhost"}, () -> {});
 				true
 				.should.be(true);
 			});
