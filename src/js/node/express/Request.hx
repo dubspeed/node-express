@@ -1,4 +1,4 @@
-package js.node.express; 
+package js.node.express;
 
 extern class Request {
 	public var params:Dynamic;

@@ -17,28 +17,34 @@ class ExpressSpec extends BuddySuite {
 
 			it("Express.json()", {
 				app.use(Express.json([]));
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 
 			it("Express.raw()", {
 				app.use(Express.raw([]));
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 			it("Express.static()", {
 				app.use(Express._static([]));
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 			it("Express.text)", {
 				app.use(Express.text([]));
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 			it("Express.urlencoded()", {
 				app.use(Express.urlencoded([]));
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 			it("Express.Router()", {
-				var router: Router = Express.Router([]);
-				true.should.be(true);
+				var router:Router = Express.Router([]);
+				true
+				.should.be(true);
 			});
 		});
 	}

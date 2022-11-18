@@ -2,13 +2,10 @@ package test;
 
 import js.node.express.*;
 import buddy.BuddySuite;
-
-using buddy.Should;
-
-#if js
 import js.Node;
 import node.express.*;
-#end
+
+using buddy.Should;
 
 class RequestSpec extends BuddySuite {
 	public function new() {

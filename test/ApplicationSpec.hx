@@ -5,10 +5,9 @@ import haxe.xml.Parser.XmlParserException;
 import js.node.express.Application;
 import buddy.Buddy;
 import buddy.BuddySuite;
+import js.Node;
 
 using buddy.Should;
-
-import js.Node;
 
 class ApplicationSpec extends BuddySuite {
 	public function new() {
@@ -16,7 +15,7 @@ class ApplicationSpec extends BuddySuite {
 			var app:Application;
 
 			beforeEach({
-				app = Express.express();				
+				app = Express.express();
 			});
 
 			it("Application set", {

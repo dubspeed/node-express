@@ -2,5 +2,11 @@ package test;
 
 import buddy.Buddy;
 
-class TestMain implements Buddy<[ExpressSpec, ApplicationSpec, MiddlewareSpec, RequestSpec, ResponseSpec, RouterSpec]> {}
-// class TestMain implements Buddy<[ExpressSpec, ApplicationSpec]> {}
+class TestMain implements Buddy<[
+	ExpressSpec,
+	ApplicationSpec,
+	MiddlewareSpec,
+	RequestSpec,
+	ResponseSpec,
+	RouterSpec
+]> {}

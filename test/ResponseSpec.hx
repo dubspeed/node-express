@@ -2,14 +2,14 @@ package test;
 
 import buddy.Buddy;
 import buddy.BuddySuite;
-using buddy.Should;
-
 import js.Node;
 import js.node.express.*;
 
+using buddy.Should;
+
 class ResponseSpec extends BuddySuite {
-	public function new(){
-		describe("ResponseSpec",{
+	public function new() {
+		describe("ResponseSpec", {
 			var app:Application;
 
 			beforeEach({
@@ -17,181 +17,201 @@ class ResponseSpec extends BuddySuite {
 				app = express();
 			});
 
-			it("ResponseSpec",{
+			it("ResponseSpec", {
 				app.get("/", (req:Request, res:Response) -> {
 					// ?
 				});
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
-			it("Response Status",{
+			it("Response Status", {
 				app.get("/", (req:Request, res:Response) -> {
 					res.status(404).end();
 				});
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
-			it("Response set",{
+			it("Response set", {
 				app.get("/", (req:Request, res:Response) -> {
 					res.set('Content-Type', 'text/plain');
 				});
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
-			it("Response get",{
+			it("Response get", {
 				app.get("/", (req:Request, res:Response) -> {
-					res.set('Content-Type','text/plain');
+					res.set('Content-Type', 'text/plain');
 					res.get('Content-Type').should.be('text/plain');
 				});
 			});
-			it("Response cookie",{
+			it("Response cookie", {
 				app.get("/", (req:Request, res:Response) -> {
-					res.cookie('name', 'tobi', { domain: '.example.com', path: '/admin', secure: true });
+					res.cookie('name', 'tobi', {domain: '.example.com', path: '/admin', secure: true});
 				});
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 
-			it("Response clearCookie",{
+			it("Response clearCookie", {
 				app.get("/", (req:Request, res:Response) -> {
-					res.cookie('name', 'tobi', { path: '/admin' });
-					res.clearCookie('name', { path: '/admin' });
+					res.cookie('name', 'tobi', {path: '/admin'});
+					res.clearCookie('name', {path: '/admin'});
 				});
 			});
 
-			it("Response redirect",{
+			it("Response redirect", {
 				app.get("/", (req:Request, res:Response) -> {
 					res.redirect('/foo/bar');
 				});
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 
-			it("Response location",{
+			it("Response location", {
 				app.get("/", (req:Request, res:Response) -> {
 					res.location('/foo/bar');
 				});
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 
-			it("Response send",{
+			it("Response send", {
 				app.get("/", (req:Request, res:Response) -> {
-					res.send({ some: 'json' });
+					res.send({some: 'json'});
 				});
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 
-			it("Response json",{
+			it("Response json", {
 				app.get("/", (req:Request, res:Response) -> {
 					res.json(null);
 				});
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 
-			it("Response jsonp",{
+			it("Response jsonp", {
 				app.get("/", (req:Request, res:Response) -> {
 					res.jsonp(null);
 				});
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 
-			it("Response type",{
+			it("Response type", {
 				app.get("/", (req:Request, res:Response) -> {
 					res.type('html');
 				});
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 
-			it("Response format",{
+			it("Response format", {
 				app.get("/", (req:Request, res:Response) -> {
 					res.format({
-						'text/plain': function(){
-					  res.send('hey');
+						'text/plain': function() {
+							res.send('hey');
 						},
-  
-						'text/html': function(){
-						  res.send('<p>hey</p>');
+
+						'text/html': function() {
+							res.send('<p>hey</p>');
 						},
-  
-						'application/json': function(){
-						  res.send({ message: 'hey' });
+
+						'application/json': function() {
+							res.send({message: 'hey'});
 						},
-  
+
 						'default': function() {
-							 // log the request and respond with 406
-						  res.status(406).send('Not Acceptable');
+							// log the request and respond with 406
+							res.status(406).send('Not Acceptable');
 						}
-				  });
+					});
 				});
 			});
 
-			it("Response attachment",{
+			it("Response attachment", {
 				app.get("/", (req:Request, res:Response) -> {
 					res.attachment();
 				});
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 
-			it("Response sendFile",{
+			it("Response sendFile", {
 				app.get("/", (req:Request, res:Response) -> {
 					res.sendFile("/home/hoge/hoge");
 				});
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 
-			it("Response sendStatus",{
+			it("Response sendStatus", {
 				app.get("/", (req:Request, res:Response) -> {
 					res.sendStatus(200);
 				});
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 
-			it("Response download",{
+			it("Response download", {
 				app.get("/", (req:Request, res:Response) -> {
 					res.download('/report-12345.pdf');
 				});
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 
-			it("Response links",{
+			it("Response links", {
 				app.get("/", (req:Request, res:Response) -> {
 					res.links({
 						next: 'http://api.example.com/users?page=2',
 						last: 'http://api.example.com/users?page=5'
-				  });
+					});
 				});
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 
-			it("Response locals",{
+			it("Response locals", {
 				app.get("/", (req:Request, res:Response) -> {
 					res.locals;
 				});
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 
-			it("Response render",{
+			it("Response render", {
 				app.get("/", (req:Request, res:Response) -> {
-					res.render('index',function(err,html){});
+					res.render('index', function(err, html) {});
 				});
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 
-			it("Response vary",{
+			it("Response vary", {
 				app.get("/", (req:Request, res:Response) -> {
 					res.vary('User-Agent');
 				});
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 
-			it("Response end",{
+			it("Response end", {
 				app.get("/", (req:Request, res:Response) -> {
 					res.end();
 					res.status(404).end();
 				});
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 
-			it("Response headersSent",{
+			it("Response headersSent", {
 				app.get("/", (req:Request, res:Response) -> {
 					res.headersSent;
 				});
-				true.should.be(true);
+				true
+				.should.be(true);
 			});
 		});
 	}
