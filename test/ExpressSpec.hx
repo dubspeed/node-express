@@ -1,10 +1,14 @@
 package test;
 
+import js.node.express.Application.MiddlewareCB;
+import js.node.express.Application.NextFunc;
 import js.node.Express;
 import js.node.express.*;
 import buddy.BuddySuite;
 
 using buddy.Should;
+
+typedef Mwtype = (Request, Response, NextFunc) -> Void;
 
 class ExpressSpec extends BuddySuite {
 	public function new() {
@@ -16,35 +20,67 @@ class ExpressSpec extends BuddySuite {
 			});
 
 			it("Express.json()", {
-				app.use(Express.json([]));
-				true
-				.should.be(true);
+				final withoutParams:MiddlewareCB = Express.json();
+				final withParams:MiddlewareCB = Express.json({
+					"inflate": true
+				});
+				withoutParams.should.not.be(null);
+				withParams.should.not.be(null);
+
+				app.use(withoutParams);
+				app.use(withParams);
 			});
 
 			it("Express.raw()", {
-				app.use(Express.raw([]));
-				true
-				.should.be(true);
+				final withoutParams:MiddlewareCB = Express.raw();
+				final withParams:MiddlewareCB = Express.raw({
+					"type": "application/octet-stream"
+				});
+				withoutParams.should.not.be(null);
+				withParams.should.not.be(null);
+
+				app.use(withoutParams);
+				app.use(withParams);
 			});
 			it("Express.static()", {
-				app.use(Express._static([]));
-				true
-				.should.be(true);
+				final withoutParams:MiddlewareCB = Express._static("/www");
+				final withParams:MiddlewareCB = Express._static("/www", {
+					"etag": true
+				});
+				withoutParams.should.not.be(null);
+				withParams.should.not.be(null);
+
+				app.use(withoutParams);
+				app.use(withParams);
 			});
-			it("Express.text)", {
-				app.use(Express.text([]));
-				true
-				.should.be(true);
+			it("Express.text()", {
+				final withoutParams:MiddlewareCB = Express.text();
+				final withParams:MiddlewareCB = Express.text({
+					"defaultCharset": "utf-8"
+				});
+				withoutParams.should.not.be(null);
+				withParams.should.not.be(null);
+
+				app.use(withoutParams);
+				app.use(withParams);
 			});
 			it("Express.urlencoded()", {
-				app.use(Express.urlencoded([]));
-				true
-				.should.be(true);
+				// withoutParams warns: body-parser deprecated undefined extended: provide extended option
+				final withoutParams:MiddlewareCB = Express.urlencoded();
+				final withParams:MiddlewareCB = Express.urlencoded({
+					"extended": true
+				});
+				withoutParams.should.not.be(null);
+				withParams.should.not.be(null);
+
+				app.use(withoutParams);
+				app.use(withParams);
 			});
 			it("Express.Router()", {
-				var router:Router = Express.Router([]);
-				true
-				.should.be(true);
+				var router:Router = Express.Router({
+					"mergeParams": false
+				});
+				app.use("/foo", router);
 			});
 		});
 	}

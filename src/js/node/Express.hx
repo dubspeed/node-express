@@ -1,5 +1,6 @@
 package js.node;
 
+import js.node.express.Application.MiddlewareCB;
 import js.Node;
 import js.node.express.*;
 import js.Syntax.code;
@@ -11,29 +12,29 @@ extern class Express {
 		return __express();
 	}
 
-	static inline function json(options:Dynamic):(Request, Response) -> Void {
-		return __express.json;
+	static inline function json(?options:Dynamic):MiddlewareCB {
+		return __express.json(options);
 	}
 
-	static inline function raw(options:Dynamic):(Request, Response) -> Void {
-		return __express.raw;
+	static inline function raw(?options:Dynamic):MiddlewareCB {
+		return __express.raw(options);
 	}
 
 	@:native("static")
-	static inline function _static(options:Dynamic):(Request, Response) -> Void {
-		return code("require({0}).static", "express");
+	static inline function _static(root:String, ?options:Dynamic):MiddlewareCB {
+		return code("require({0}).static({1}, {2})", "express", root, options);
 	}
 
-	static inline function text(options:Dynamic):(Request, Response) -> Void {
-		return __express.text;
+	static inline function text(?options:Dynamic):MiddlewareCB {
+		return __express.text(options);
 	}
 
-	static inline function urlencoded(options:Dynamic):(Request, Response) -> Void {
-		return __express.urlencoded;
+	static inline function urlencoded(?options:Dynamic):MiddlewareCB {
+		return __express.urlencoded(options);
 	}
 
-	static inline function Router(options:Dynamic):js.node.express.Router {
-		return __express.Router;
+	static inline function Router(?options:Dynamic):js.node.express.Router {
+		return __express.Router(options);
 	}
 	// Router
 }

@@ -6,8 +6,13 @@
     ],
     "haxeTestExplorer.testCommand": [
         "${haxe}",
-        "test/build.hxml",
+        "unittest.hxml",
         "-lib",
         "test-adapter"
-      ]
+      ],
+    "haxecheckstyle.sourceFolders": [
+        "src",
+        "test"
+    ],
+
 }

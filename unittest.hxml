@@ -2,9 +2,8 @@
 -lib hxnodejs
 -lib buddy
 -cp src
--cp .
-#--no-output
+-cp test 
 -D nodejs
--js main.js
+-js bin/unittest.js
 -cmd echo "test"
--cmd node main.js
+-cmd node bin/unittest.js

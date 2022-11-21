@@ -12,6 +12,30 @@
 			],
 			"group": "build",
 			"label": "haxe: build.hxml"
+		},
+		{
+			"label": "integration",
+			"type": "hxml",
+			"file": "integration.hxml",
+			"problemMatcher": [
+				"$haxe-absolute",
+				"$haxe",
+				"$haxe-error",
+				"$haxe-trace"
+			],
+			"group": "build"
+		},
+		{
+			"label": "build: example",
+			"type": "hxml",
+			"file": "example.hxml",
+			"problemMatcher": [
+				"$haxe-absolute",
+				"$haxe",
+				"$haxe-error",
+				"$haxe-trace"
+			],
+			"group": "build"
 		}
 	]
 }

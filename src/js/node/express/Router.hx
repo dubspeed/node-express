@@ -1,8 +1,27 @@
 package js.node.express;
 
+import js.node.express.Application.Path;
+import js.node.express.Request;
+import js.node.express.Application.NextFunc;
+import haxe.extern.EitherType;
+import js.node.express.Application.MiddlewareCB;
+
+typedef RouterParamCB = EitherType<EitherType<(Request, Response) -> Void, (Request, Response, NextFunc) -> Void>,
+	(Request, Response, NextFunc, String) -> Void>;
+
 extern class Router {
-	public function use(?path:String, ?callback:Request->Response->(Void->Void)->Void):Void;
-	public function all(?path:String, callback:Dynamic):Void;
-	public function param(?name:String, callback:Request->Response->(Void->Void)->String->Void):Void;
-	public function route(path:String):Void;
+	function all(path:Path, callback:MiddlewareCB, ...rest:MiddlewareCB):Void;
+	function param(name:String, callback:RouterParamCB):Void;
+	function route(path:Path):Void;
+	function use(?path:String, callback:MiddlewareCB, ...rest:MiddlewareCB):Void;
+
+	function get(path:Path, callback:MiddlewareCB, ...rest:MiddlewareCB):Void;
+	function head(path:Path, callback:MiddlewareCB, ...rest:MiddlewareCB):Void;
+	function post(path:Path, callback:MiddlewareCB, ...rest:MiddlewareCB):Void;
+	function put(path:Path, callback:MiddlewareCB, ...rest:MiddlewareCB):Void;
+	function delete(path:Path, callback:MiddlewareCB, ...rest:MiddlewareCB):Void;
+	function connect(path:Path, callback:MiddlewareCB, ...rest:MiddlewareCB):Void;
+	function options(path:Path, callback:MiddlewareCB, ...rest:MiddlewareCB):Void;
+	function trace(path:Path, callback:MiddlewareCB, ...rest:MiddlewareCB):Void;
+	function patch(path:Path, callback:MiddlewareCB, ...rest:MiddlewareCB):Void;
 }

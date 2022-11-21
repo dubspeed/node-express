@@ -18,7 +18,7 @@ class ApplicationSpec extends BuddySuite {
 				app = Express.express();
 			});
 
-			it("Application set", {
+			it("Application set & get", {
 				app.set("1", "2");
 				app.get("1").should.be("2");
 			});
@@ -29,26 +29,16 @@ class ApplicationSpec extends BuddySuite {
 				.should.be(true);
 			});
 
-			it("Application enable", {
-				app.enable("test");
-				app.enabled("test").should.be(true);
-				// get -> String だがbool値とundefineも返す
-			});
-
-			it("Application enabled", {
+			it("Application enable / enabled / disable / disabled", {
 				app.enabled("test").should.be(false);
 				app.enable("test");
 				app.enabled("test").should.be(true);
-			});
-
-			it("Application disable", {
+				app.enable("test");
+				app.enabled("test").should.be(true);
 				app.enable("test");
 				app.enabled("test").should.be(true);
 				app.disable("test");
 				app.enabled("test").should.be(false);
-			});
-
-			it("Application disabled", {
 				app.disabled("test").should.be(true);
 				app.enable("test");
 				app.disabled("test").should.be(false);
@@ -101,7 +91,7 @@ class ApplicationSpec extends BuddySuite {
 
 			it("Application listen", {
 				app.listen(9000);
-				app.listen(9001, () -> {});	
+				app.listen(9001, () -> {});
 				app.listen(9002, "localhost", () -> {});
 				app.listen(9003, "localhost", 42, () -> {});
 				app.listen({port: 9004, host: "localhost"}, () -> {});

@@ -1,0 +1,7 @@
+-cp src
+-cp test/integration
+--library buddy
+--library hxnodejs
+--library test-adapter
+--js bin/integration.js
+--main IntegrationMain.hx
