@@ -34,32 +34,40 @@ extern class Application {
 	@:overload(function(name:String):Dynamic {})
 	function get(path:Path, callback:MiddlewareCB, ...rest:MiddlewareCB):Void;
 
-	function set(name:String, value:String):Void;
+	@:overload(function(name:String):String {})
+	@:overload(function(name:String):Bool {})
+	@:overload(function(name:String):EitherType<Float, Int> {})
+	@:overload(function(name:String):Dynamic {})
+	function set(name:String, value:String):Application;
+
 	function post(path:Path, ...callback:MiddlewareCB):Void;
-	function enable(name:String):Void;
+	function enable(name:String):Application;
 	function enabled(name:String):Bool;
-	function disable(name:String):Void;
+	function disable(name:String):Application;
 	function disabled(name:String):Bool;
 
 	@:overload(function(?path:Path, func:MiddlewareCB, ...callback:MiddlewareCB):Void {})
-	function use(callback:MiddlewareCB):Void;
+	function use(callback:MiddlewareCB):Application;
 
-	function engine(ext:String, ...callback:MiddlewareCB):Void;
-	function param(id:String, callback:Request->Response->String->String->Void):Void;
-	function all(?path:Path, ...callback:MiddlewareCB):Void;
-	function route(path:Path):Void;
-	function render(view:String, callback:String->String->Void):Void;
+	function engine(ext:String, ...callback:MiddlewareCB):Application;
+	function param(id:String, callback:Request->Response->String->String->Void):Application;
+	function all(?path:Path, ...callback:MiddlewareCB):Application;
+	function route(path:Path):Router;
+
+	@:overload(function(view:String, callback:(Dynamic, String) -> Void):Void {})
+	function render(view:String, locals:Dynamic, callback:(Dynamic, String) -> Void):Void;
 
 	/**
 	 * `listen` adheres to nodeJs `http.server.listen()`
 	 * @see https://github.com/HaxeFoundation/hxnodejs/blob/master/src/js/node/net/Server.hx
 	 */
-	@:overload(function(port:Int, hostname:String, backlog:Int, ?callback:Void->Void):Void {})
-	@:overload(function(handle:EitherType<Dynamic, {fd:Int}>, ?callback:Void->Void):Void {})
-	@:overload(function(port:Int, ?callback:Void->Void):Void {})
-	@:overload(function(port:Int, backlog:Int, ?callback:Void->Void):Void {})
-	@:overload(function(port:Int, hostname:String, ?callback:Void->Void):Void {})
-	function listen(options:EitherType<js.node.net.Server.ServerListenOptionsTcp, js.node.net.Server.ServerListenOptionsUnix>, ?callback:Void->Void):Void;
+	@:overload(function(port:Int, hostname:String, backlog:Int, ?callback:Void->Void):js.node.net.Server {})
+	@:overload(function(handle:EitherType<Dynamic, {fd:Int}>, ?callback:Void->Void):js.node.net.Server {})
+	@:overload(function(port:Int, ?callback:Void->Void):js.node.net.Server {})
+	@:overload(function(port:Int, backlog:Int, ?callback:Void->Void):js.node.net.Server {})
+	@:overload(function(port:Int, hostname:String, ?callback:Void->Void):js.node.net.Server {})
+	function listen(options:EitherType<js.node.net.Server.ServerListenOptionsTcp, js.node.net.Server.ServerListenOptionsUnix>,
+		?callback:Void->Void):js.node.net.Server;
 
 	function path(url:String):String;
 	function on(mount:String, callback:(Application) -> Void):Void;

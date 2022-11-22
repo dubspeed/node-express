@@ -200,14 +200,6 @@ class RequestSpec extends BuddySuite {
 				true
 				.should.be(true);
 			});
-
-			it("Request session", {
-				app.get("/", (req:Request, res:Response) -> {
-					req.session;
-				});
-				true
-				.should.be(true);
-			});
 		});
 	}
 }
